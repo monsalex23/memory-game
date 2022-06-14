@@ -30,7 +30,7 @@ function checkForMath() {
 function disableCards() {
     fristCard.removeEventListener('click', flipCards);
     secondCard.removeEventListener('click', flipCards);
-    
+
     resetBoard();
 }
 
@@ -49,6 +49,14 @@ function resetBoard() {
     [hasFlippedCard, lockBoard] = [false, false];
     [flipCards, secondCard] = [null, null];
 }
+
+(function shuffle() {
+    cards.forEach ((card) => {
+        let ramdomPosition = Math.floor(Math.random () * 12);
+        card.style.order = ramdomPosition;
+    })
+}
+) (); //immediate function
 
 cards.forEach((cards) => {
     cards.addEventListener('click', flipCards);
